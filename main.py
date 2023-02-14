@@ -4,6 +4,6 @@ operations = funk.create_ex_class()
 
 for i in range(5):
     print(operations[i].beautiful_data(), operations[i].description)
-    print(operations[i].from_, operations[i].to)
+    print(operations[i].beautiful_card_number(), operations[i].to)
     print(operations[i].summa, operations[i].currency)
     print()
