@@ -24,10 +24,11 @@ def create_ex_class():
         if 'from' in i.keys():
             list_ex_class.append(Operation(i['date'],
                                            i['description'],
-                                           i['from'],
                                            i['to'],
                                            i['operationAmount']['currency']['name'],
-                                           i['operationAmount']['amount']))
+                                           i['operationAmount']['amount'],
+                                           i['from']))
+
         else:
             list_ex_class.append(Operation(i['date'],
                                            i['description'],
