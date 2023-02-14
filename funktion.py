@@ -20,9 +20,21 @@ def create_ex_class():
     list_ex_class = []
     list_from_json = get_json_to_list()
     for i in list_from_json:
-        list_ex_class.append(Operation(i.get('date'),
-                                       i.get('description'),
-                                       i.get('to'),
-                                       i.get('currency'),
-                                       i.get('amount')))
+        if 'from' in i.keys():
+            list_ex_class.append(Operation(i['date'],
+                                           i['description'],
+                                           i['from'],
+                                           i['to'],
+                                           i['operationAmount']['currency']['name'],
+                                           i['operationAmount']['amount']))
+        else:
+            list_ex_class.append(Operation(i['date'],
+                                           i['description'],
+                                           i['to'],
+                                           i['operationAmount']['currency']['name'],
+                                           i['operationAmount']['amount']))
     return list_ex_class
+
+
+q = create_ex_class()
+print(*q, sep='\n')
