@@ -27,6 +27,7 @@ def create_ex_class():
                                            i['to'],
                                            i['operationAmount']['currency']['name'],
                                            i['operationAmount']['amount'],
+                                           i['state'],
                                            i['from']))
 
         else:
@@ -34,5 +35,20 @@ def create_ex_class():
                                            i['description'],
                                            i['to'],
                                            i['operationAmount']['currency']['name'],
-                                           i['operationAmount']['amount']))
+                                           i['operationAmount']['amount'],
+                                           i['state']))
     return list_ex_class
+
+
+def beautiful_result(operation):
+    """Вывод результата в требуемом формате"""
+    if operation.from_ is None:
+        print(operation.beautiful_data(), operation.description)
+        print(operation.to)
+        print(operation.summa, operation.currency)
+        print()
+    else:
+        print(operation.beautiful_data(), operation.description)
+        print(f'{operation.from_}  ->  {operation.to}')
+        print(operation.summa, operation.currency)
+        print()

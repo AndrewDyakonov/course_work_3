@@ -1,11 +1,12 @@
 class Operation:
     """"""
-    def __init__(self, date, description, to, currency, summa, from_=None):
+    def __init__(self, date, description, to, currency, summa, state, from_=None):
         self.date = date
         self.description = description
         self.to = to
         self.currency = currency
         self.summa = summa
+        self.state = state
         self.from_ = from_
 
         self.from_ = self.beautiful_card_number(self.from_)
@@ -17,7 +18,8 @@ class Operation:
         result = clear_data[8:] + '.' + clear_data[5:7] + '.' + clear_data[:4]
         return result
 
-    def beautiful_card_number(self, word):
+    @staticmethod
+    def beautiful_card_number(word):
         """Возвращает номер карты или счёта в требуемом формате"""
         text = str(word)
         if sum(c.isdigit() for c in text) == 16:
