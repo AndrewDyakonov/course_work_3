@@ -35,7 +35,3 @@ def create_ex_class():
                                            i['operationAmount']['currency']['name'],
                                            i['operationAmount']['amount']))
     return list_ex_class
-
-
-q = create_ex_class()
-print(*q, sep='\n')
