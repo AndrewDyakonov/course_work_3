@@ -34,3 +34,7 @@ class Operation:
     def __repr__(self):
         return f'{self.date}, {self.description}, {self.to}, {self.currency}' \
                f'{self.summa}, {self.from_}'
+
+a = [1, 2, 3 ,4 ]
+a.insert(3, 9)
+print(a)
